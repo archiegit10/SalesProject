@@ -48,20 +48,20 @@ namespace SalesProj.Menu
                 switch (input.ToUpper())
                 {
                     case "1":
-                        // year by sales control
+                        // sales by year
 
                         break;
                     case "2":
-                        //Controller to for report  
+                        //Sales by month and year   
                         break;
                     case "3":
-                        //Controller to for report
-                        //reportController.TotalSalesYear();
+                        // total sales by year
                         productController.TotalSalesYear();
 
                         break;
                     case "4":
-                        //Controller to for report
+                        // total sales by year and month
+                        productController.TotalSalesMonth();
                         break;
                     case "5":
                         SubMenu();

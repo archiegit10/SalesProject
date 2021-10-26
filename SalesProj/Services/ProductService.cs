@@ -30,13 +30,7 @@ namespace SalesProj.Services
             return productRepository.Read();
         }
 
-        internal string TotalYearRead(string totalYearSum, string year)
-        {
-            string sum = totalYearSum;
-            string passyear = year;
-            //Console.WriteLine($"Product service {inputYear}");
-            return productRepository.TotalYearRead(totalYearSum, passyear);
-        }
+
         internal void Delete(int id)
         {
             if (!productRepository.Exists(id))
@@ -44,6 +38,22 @@ namespace SalesProj.Services
                 Console.WriteLine($"item with id: {id} does not exist");
             }
             productRepository.Delete(id);
+        }
+
+        internal string TotalYearRead(string totalYearSum, string year)
+        {
+            string sum = totalYearSum;
+            string passYear = year;
+            //Console.WriteLine($"Product service {inputYear}");
+            return productRepository.TotalYearRead(totalYearSum, passYear);
+        }
+
+        internal string TotalYearMonthRead(string totalYearMonthSum, string year, string month)
+        {
+            string sum = totalYearMonthSum;
+            string passYear = year;
+            string passMonth = month;
+            return productRepository.TotalYearMonthRead(totalYearMonthSum, passYear, passMonth);
         }
     }
 }

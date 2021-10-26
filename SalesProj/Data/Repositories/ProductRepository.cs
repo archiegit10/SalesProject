@@ -51,29 +51,7 @@ namespace SalesProj.Data.Repositories
             return products;
         }
 
-        public string TotalYearRead(string totalYearSum, string passyear)
-        {
-            //Console.WriteLine($"PASS YEAR {passyear}");
-            //Console.WriteLine("Product repo input year");
-            //string inputYear = Console.ReadLine();
-            //Console.WriteLine($"Product repo {inputYear}");
 
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = $"select sum(item_price * sale_quantity) from sales where year(sale_date) = ('{passyear}')";
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
-            while (reader.Read())
-            {
-                
-                //Console.WriteLine(reader["sum(item_price * sale_quantity)"].ToString());
-                totalYearSum = reader["sum(item_price * sale_quantity)"].ToString();
-                //float intTotalYearSum = reader.GetFieldValue<float>("sum(item_price * sale_quantity)");
-                //totalYearSum = intTotalYearSum.ToString();
-            }
-            connection.Close();
-            //totalYearSum = intTotalYearSum.ToString();
-            return totalYearSum;
-        }
 
 
         public void Delete(int id)
@@ -117,6 +95,33 @@ namespace SalesProj.Data.Repositories
             connection.Close();
 
             return result > 0;
+        }
+
+        public string TotalYearRead(string totalYearSum, string passyear)
+        {
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = $"select sum(item_price * sale_quantity) from sales where year(sale_date) = ('{passyear}')";
+            connection.Open();
+            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
+            while (reader.Read())
+            {
+                totalYearSum = reader["sum(item_price * sale_quantity)"].ToString();
+            }
+            connection.Close();
+            return totalYearSum;
+        }
+        public string TotalYearMonthRead(string totalYearMonthSum, string passYear, string passMonth)
+        {
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = $"select sum(item_price * sale_quantity) from sales where month(sale_date) = ('{passMonth}') and year(sale_date) = ('{passYear}')";
+            connection.Open();
+            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
+            while (reader.Read())
+            {
+                totalYearMonthSum = reader["sum(item_price * sale_quantity)"].ToString();
+            }
+            connection.Close();
+            return totalYearMonthSum;
         }
 
 

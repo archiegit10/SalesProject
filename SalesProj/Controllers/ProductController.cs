@@ -63,37 +63,31 @@ namespace SalesProj.Controllers
                 Console.WriteLine("else delete id");
             }
         }
+
+        //total sales for year 
         public void TotalSalesYear()
         {
             Console.WriteLine("Enter the year: ");
-            string totalYearSum = "";
+            Console.Write(">");
             string year = Console.ReadLine();
+            string totalYearSum = "";
             string salesSum = productService.TotalYearRead(totalYearSum, year);
             Console.Write($"Sales sum for year {year} is £{salesSum}\n");
         }
-        /*public void TotalSalesYear()
+        public void TotalSalesMonth()
         {
-            // sum of all sales for year
             Console.WriteLine("Enter the Year:");
             Console.Write(">");
-            int totalYear = Convert.ToInt32(Console.ReadLine());
-
-            int sum = 0;
-            IEnumerable<Product> productsInDb = productService.Read();
-            foreach (var product in productsInDb)
-            {
-                Console.WriteLine($"{product.GetInfo()}");
-                if (product.saleDate.Year == totalYear)
-                {
-                    int productSum = (int)(product.price * product.quantity);
-                    sum = sum + productSum;
-                }
-            }
-            Console.WriteLine($"Sum of Sales for {totalYear}: {sum}");
+            string year = Console.ReadLine();
+            Console.WriteLine("Enter the Month:");
+            Console.Write(">");
+            string month = Console.ReadLine();
+            string totalYearMonthSum = "";
+            string salesSum = productService.TotalYearMonthRead(totalYearMonthSum, year, month);
+            Console.Write($"Sales sum for year {year} and month {month} is £{salesSum}\n");
 
         }
-        */
-        
+
 
     }
 }
