@@ -59,5 +59,11 @@ namespace SalesProj.Services
             string passYear = year;
             return productRepository.TotalSalesYear(passYear);
         }
+        internal IEnumerable<Product> TotalSalesYearMonth(string year, string month)
+        {
+            string passYear = year;
+            string passMonth = month;
+            return productRepository.TotalSalesYearMonth(passYear, passMonth);
+        }
     }
 }

@@ -110,6 +110,25 @@ namespace SalesProj.Controllers
             Console.ReadKey();
         }
 
+        public void SalesYearMonth()
+        {
+            Console.WriteLine("Enter the year: ");
+            Console.Write(">");
+            string year = Console.ReadLine();
+            Console.WriteLine("Enter the Month: (IN DIGITS 1-12)");
+            Console.Write(">");
+            string month = Console.ReadLine();
+            Console.Write($"Individual Sales in year {year} and month {month}\n");
+
+            IEnumerable<Product> productsInDb = productService.TotalSalesYearMonth(year, month);
+            foreach (var product in productsInDb)
+            {
+                Console.WriteLine($"{product.GetInfo()}");
+            }
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
+        }
+
 
     }
 }

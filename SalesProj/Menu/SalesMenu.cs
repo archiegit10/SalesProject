@@ -53,7 +53,8 @@ namespace SalesProj.Menu
 
                         break;
                     case "2":
-                        //Sales by month and year   
+                        //Sales by month and year
+                        productController.SalesYearMonth();
                         break;
                     case "3":
                         // total sales by year
