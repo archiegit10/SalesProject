@@ -30,9 +30,9 @@ namespace SalesProj.Controllers
             Console.WriteLine("Enter the Price:");
             double price = Convert.ToDouble(Console.ReadLine());
 
-            
+            DateTime saleDate = DateTime.Today;
 
-            Product toCreate = new Product() { saleID = saleID, productName = productName, quantity = quantity, price = price };
+            Product toCreate = new Product() { saleID = saleID, productName = productName, quantity = quantity, price = price , saleDate = saleDate};
             Product newProduct = productService.Create(toCreate);
             Console.WriteLine($"New product created: {newProduct}");
             
@@ -56,7 +56,7 @@ namespace SalesProj.Controllers
             if (b)
             {
                 productService.Delete(id);
-                Console.WriteLine("Deleted ID");
+                Console.WriteLine($"Deleted ID: {id}");
             }
             else
             {

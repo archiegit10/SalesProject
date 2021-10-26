@@ -71,8 +71,10 @@ namespace SalesProj.Data.Repositories
                 string product_name = reader.GetFieldValue<string>("product_name");
                 int sale_quantity = reader.GetFieldValue<int>("sale_quantity");
                 double item_price = reader.GetFieldValue<double>("item_price");
+                DateTime saleDate = reader.GetFieldValue<DateTime>("sale_date");
+                
 
-                Product product = new Product() { SaleID = sale_id, ProductName = product_name, quantity = sale_quantity, price = item_price };
+                Product product = new Product() { SaleID = sale_id, ProductName = product_name, quantity = sale_quantity, price = item_price, saleDate = saleDate };
                 products.Add(product);
             }
             return products;

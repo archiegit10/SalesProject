@@ -20,11 +20,13 @@ namespace SalesProj.Data
         public double price;
         public double Price { get => price; set => price = value; }
 
+        public DateTime saleDate;
+
 
         
         public string GetInfo()
         {
-            return $"\nID: {saleID}\nName: {productName}\nQuantity: {quantity}\nPrice: {price}";
+            return $"\nID: {saleID}\nName: {productName}\nQuantity: {quantity}\nPrice: {price} \nSale Date: {saleDate.ToShortDateString()}";
         }
 
         public Product(int saleID = 0, string productName = "Unknown", int quantity = 0, double price = 0.0)
@@ -33,6 +35,7 @@ namespace SalesProj.Data
             this.productName = productName;
             this.quantity = quantity;
             this.price = price;
+            saleDate = saleDate;
         }
     }
 }

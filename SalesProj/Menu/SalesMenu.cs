@@ -16,8 +16,8 @@ namespace SalesProj.Menu
         }
         public void SubMenu()
         {
-            Console.WriteLine("1. DATA ENTRY\n2. REPORTS\n3. QUIT");
-
+            Console.WriteLine("\n1. DATA ENTRY\n2. REPORTS\n3. QUIT");
+            Console.Write("> ");
             string input = Console.ReadLine();
             switch (input.ToUpper())
             {
@@ -38,7 +38,8 @@ namespace SalesProj.Menu
 
             while (inMenu)
             {
-                Console.WriteLine("Data Report\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Back");
+                Console.WriteLine("\nData Report\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Back");
+                Console.Write("> ");
                 string input = Console.ReadLine();
                 switch (input.ToUpper())
                 {
@@ -59,7 +60,6 @@ namespace SalesProj.Menu
                         inMenu = false;
                         break;
                 }
-                Console.WriteLine("Reports");
 
             }
         }
@@ -69,7 +69,8 @@ namespace SalesProj.Menu
             bool inMenu = true;
             while (inMenu)
             {
-                Console.WriteLine("Data Entry\n1. Read all products\n2. Create Product\n3. Delete Products\n4. Back");
+                Console.WriteLine("\nData Entry\n1. Read all products\n2. Create Product\n3. Delete Products\n4. Back");
+                Console.Write("> ");
                 string input = Console.ReadLine();
                 switch (input.ToUpper())
                 {

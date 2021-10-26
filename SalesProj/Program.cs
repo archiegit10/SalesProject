@@ -24,8 +24,6 @@ namespace SalesProj
                         new ProductRepository(
                             connection))));
 
-            Console.WriteLine("Hello World!");
-
             menu.SubMenu();
             
 
