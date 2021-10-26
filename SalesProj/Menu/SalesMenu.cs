@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalesProj.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,12 @@ namespace SalesProj.Menu
 {
     class SalesMenu
     {
-        public static void SubMenu()
+        private readonly ProductController productController;
+        public SalesMenu(ProductController productController)
+        {
+            this.productController = productController;
+        }
+        public void SubMenu()
         {
             Console.WriteLine("1. DATA ENTRY\n2. REPORTS\n3. QUIT");
 
@@ -26,7 +32,7 @@ namespace SalesProj.Menu
             }
         }
 
-        private static void ReportsSubMenu()
+        public void ReportsSubMenu()
         {
             bool inMenu = true;
 
@@ -58,9 +64,8 @@ namespace SalesProj.Menu
             }
         }
 
-        private static void DataSubMenu()
+        public void DataSubMenu()
         {
-            //SalesController salesControl = new SalesController();
             bool inMenu = true;
             while (inMenu)
             {
@@ -70,12 +75,14 @@ namespace SalesProj.Menu
                 {
                     case "1" or "READ":
                         //Controller to read movies
+                        productController.ReadProducts();
                         break;
                     case "2" or "CREATE":
-                        //controller to create movie
+                        productController.Create();
                         break;
                     case "3" or "DELETE":
                         //controller to delete movie
+                        productController.Delete();
                         break;
                     case "4" or "BACK":
                         SubMenu();

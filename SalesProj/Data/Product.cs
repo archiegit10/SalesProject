@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace SalesProj.Product
+using SalesProj.Data.Repositories;
+namespace SalesProj.Data
 {
     class Product
     {
-        private int saleID;
+        public int saleID;
         public int SaleID { get => saleID; set => saleID = value; }
 
-        private string productName;
+        public string productName;
         public string ProductName { get => productName; set => productName = value; }
 
-        private int quantity;
+        public int quantity;
         public int Quantity { get => quantity; set => quantity = value; }
 
-        private double price;
+        public double price;
         public double Price { get => price; set => price = value; }
 
-        private DateTime? saleDate;
+        public DateTime? saleDate;
         public DateTime? SaleDate { get => saleDate; set => saleDate = value; }
 
         
