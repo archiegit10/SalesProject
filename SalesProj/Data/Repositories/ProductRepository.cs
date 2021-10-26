@@ -54,7 +54,7 @@ namespace SalesProj.Data.Repositories
         public void Delete(int id)
         {
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = $"DELETE FROM item WHERE id={id}";
+            command.CommandText = $"DELETE FROM Sales WHERE id={id}";
 
             connection.Open();
             command.ExecuteNonQuery();
