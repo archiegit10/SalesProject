@@ -65,9 +65,11 @@ namespace SalesProj.Controllers
         }
         public void TotalSalesYear()
         {
-            string input = Console.ReadLine();
-            string salesSum = productService.TotalYearRead(input);
-            Console.Write(salesSum);
+            Console.WriteLine("Enter the year: ");
+            string totalYearSum = "";
+            string year = Console.ReadLine();
+            string salesSum = productService.TotalYearRead(totalYearSum, year);
+            Console.Write($"Sales sum for year {year} is £{salesSum}\n");
         }
         /*public void TotalSalesYear()
         {

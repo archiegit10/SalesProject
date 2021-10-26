@@ -30,12 +30,12 @@ namespace SalesProj.Services
             return productRepository.Read();
         }
 
-        internal string TotalYearRead(string totalYearSum)
+        internal string TotalYearRead(string totalYearSum, string year)
         {
             string sum = totalYearSum;
-            Console.WriteLine(" product service");
-            
-            return productRepository.TotalYearRead(totalYearSum);
+            string passyear = year;
+            //Console.WriteLine($"Product service {inputYear}");
+            return productRepository.TotalYearRead(totalYearSum, passyear);
         }
         internal void Delete(int id)
         {

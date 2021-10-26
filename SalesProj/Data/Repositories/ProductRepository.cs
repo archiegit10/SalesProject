@@ -51,17 +51,22 @@ namespace SalesProj.Data.Repositories
             return products;
         }
 
-        public string TotalYearRead(string totalYearSum)
+        public string TotalYearRead(string totalYearSum, string passyear)
         {
+            //Console.WriteLine($"PASS YEAR {passyear}");
+            //Console.WriteLine("Product repo input year");
+            //string inputYear = Console.ReadLine();
+            //Console.WriteLine($"Product repo {inputYear}");
+
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "select sum(item_price * sale_quantity) from sales where year(sale_date) = 2021";
+            command.CommandText = $"select sum(item_price * sale_quantity) from sales where year(sale_date) = ('{passyear}')";
             connection.Open();
             MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
             while (reader.Read())
             {
-
-                //int intTotalYearSum = (int)Convert.ToSingle(reader.GetFieldValue<float>("sum(item_price * sale_quantity)"));
-                Console.WriteLine(reader["sum(item_price * sale_quantity)"].ToString());
+                
+                //Console.WriteLine(reader["sum(item_price * sale_quantity)"].ToString());
+                totalYearSum = reader["sum(item_price * sale_quantity)"].ToString();
                 //float intTotalYearSum = reader.GetFieldValue<float>("sum(item_price * sale_quantity)");
                 //totalYearSum = intTotalYearSum.ToString();
             }
@@ -113,5 +118,7 @@ namespace SalesProj.Data.Repositories
 
             return result > 0;
         }
+
+
     }
 }

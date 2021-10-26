@@ -18,7 +18,8 @@ namespace SalesProj.Data.Repositories
         bool Exists(U u);
 
         //internal string TotalYearRead(C c);
-        string TotalYearRead(C c);
+        string TotalYearRead(C c, string passyear);
+
     }
 }
 
