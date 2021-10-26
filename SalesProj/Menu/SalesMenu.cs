@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SalesProj.Menu;
 
 namespace SalesProj.Menu
 {
     class SalesMenu
     {
         private readonly ProductController productController;
+        
         public SalesMenu(ProductController productController)
         {
             this.productController = productController;
         }
+
+
         public void SubMenu()
         {
             Console.WriteLine("\n1. DATA ENTRY\n2. REPORTS\n3. QUIT");
@@ -44,13 +48,17 @@ namespace SalesProj.Menu
                 switch (input.ToUpper())
                 {
                     case "1":
-                        //Controller to for report  
+                        // year by sales control
+
                         break;
                     case "2":
                         //Controller to for report  
                         break;
                     case "3":
                         //Controller to for report
+                        //reportController.TotalSalesYear();
+                        productController.TotalSalesYear();
+
                         break;
                     case "4":
                         //Controller to for report

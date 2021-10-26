@@ -23,28 +23,8 @@ namespace SalesProj.Services
         {
             Product newProduct = productRepository.Create(toCreate);
             return newProduct;
-            /*Console.WriteLine("Enter the Sale ID:");
-            int saleID = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Enter the Product Name:");
-            string productName = Console.ReadLine();
-
-            Console.WriteLine("Enter the Quantity:");
-            int quantity = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Enter the Price:");
-            double price = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("Enter the Sale Date:");
-            string pattern = "dd/MM/yyyy";
-            DateTime saleDate = DateTime.ParseExact(Console.ReadLine(),pattern, null);
-
-
-            Product.Product newProduct = new Product.Product(saleID, productName, quantity, price, saleDate);
-            products.Add(newProduct);
-            Console.WriteLine($"Created new movie of {newProduct}");
-            return product;*/
         }
+
         internal IEnumerable<Product> Read()
         {
             return productRepository.Read();

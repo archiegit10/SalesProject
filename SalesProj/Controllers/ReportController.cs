@@ -1,4 +1,5 @@
-﻿using SalesProj.Services;
+﻿using SalesProj.Data;
+using SalesProj.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,20 @@ namespace SalesProj.Controllers
             Console.WriteLine("Enter the Year:");
             Console.Write(">");
             int totalYear = Convert.ToInt32(Console.ReadLine());
+
+            int sum = 0;
+            IEnumerable<Product> productsInDb = productService.Read();
+            foreach (var product in productsInDb)
+            {
+                Console.WriteLine($"{product.GetInfo()}");
+                if (product.saleDate.Year == totalYear)
+                {
+                    int productSum = (int)(product.price * product.quantity);
+                    sum = sum + productSum;
+                }
+            }
+            Console.WriteLine($"Sum of Sales for {totalYear}: {sum}");
+
         }
         public void TotalSalesMonth()
         {
