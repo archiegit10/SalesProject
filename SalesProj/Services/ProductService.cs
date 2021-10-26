@@ -44,7 +44,6 @@ namespace SalesProj.Services
         {
             string sum = totalYearSum;
             string passYear = year;
-            //Console.WriteLine($"Product service {inputYear}");
             return productRepository.TotalYearRead(totalYearSum, passYear);
         }
 
@@ -54,6 +53,11 @@ namespace SalesProj.Services
             string passYear = year;
             string passMonth = month;
             return productRepository.TotalYearMonthRead(totalYearMonthSum, passYear, passMonth);
+        }
+        internal IEnumerable<Product> TotalSalesYear(string year)
+        {
+            string passYear = year;
+            return productRepository.TotalSalesYear(passYear);
         }
     }
 }

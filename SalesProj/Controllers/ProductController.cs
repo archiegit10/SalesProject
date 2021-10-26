@@ -45,6 +45,8 @@ namespace SalesProj.Controllers
             {
                 Console.WriteLine($"{product.GetInfo()}");
             }
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
         }
         internal void Delete()
         {
@@ -62,6 +64,7 @@ namespace SalesProj.Controllers
             {
                 Console.WriteLine("else delete id");
             }
+            
         }
 
         //total sales for year 
@@ -73,19 +76,38 @@ namespace SalesProj.Controllers
             string totalYearSum = "";
             string salesSum = productService.TotalYearRead(totalYearSum, year);
             Console.Write($"Sales sum for year {year} is £{salesSum}\n");
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
         }
         public void TotalSalesMonth()
         {
             Console.WriteLine("Enter the Year:");
             Console.Write(">");
             string year = Console.ReadLine();
-            Console.WriteLine("Enter the Month:");
+            Console.WriteLine("Enter the Month: (IN DIGITS 1-12)");
             Console.Write(">");
             string month = Console.ReadLine();
             string totalYearMonthSum = "";
             string salesSum = productService.TotalYearMonthRead(totalYearMonthSum, year, month);
             Console.Write($"Sales sum for year {year} and month {month} is £{salesSum}\n");
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
+        }
 
+        public void SalesYear()
+        {
+            Console.WriteLine("Enter the year: ");
+            Console.Write(">");
+            string year = Console.ReadLine();
+            Console.Write($"Individual Sales in year {year}\n");
+
+            IEnumerable<Product> productsInDb = productService.TotalSalesYear(year);
+            foreach (var product in productsInDb)
+            {
+                    Console.WriteLine($"{product.GetInfo()}");
+            }
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
         }
 
 

@@ -18,8 +18,12 @@ namespace SalesProj.Data.Repositories
         bool Exists(U u);
 
         //internal string TotalYearRead(C c);
+        //sum of year
         string TotalYearRead(C c, string passYear);
+        //sum of month and year
         string TotalYearMonthRead(C c, string passYear, string passMonth);
+        //total of year
+        public IList<T> TotalSalesYear(string passYear);
 
     }
 }

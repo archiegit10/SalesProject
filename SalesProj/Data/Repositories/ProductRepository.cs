@@ -124,6 +124,17 @@ namespace SalesProj.Data.Repositories
             return totalYearMonthSum;
         }
 
+        public IList<Product> TotalSalesYear(string passYear)
+        {
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = $"select * from sales where year(sale_date) = ('{passYear}')";
+            connection.Open();
+            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
+            IList<Product> products = ItemsFromReader(reader);
+            connection.Close();
+            return products;
+        }
+
 
     }
 }

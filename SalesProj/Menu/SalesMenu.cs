@@ -42,13 +42,14 @@ namespace SalesProj.Menu
 
             while (inMenu)
             {
-                Console.WriteLine("\nData Report\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Back");
+                Console.WriteLine("\n--------------------\nData Report Menu\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Back\n--------------------");
                 Console.Write("> ");
                 string input = Console.ReadLine();
                 switch (input.ToUpper())
                 {
                     case "1":
                         // sales by year
+                        productController.SalesYear();
 
                         break;
                     case "2":
