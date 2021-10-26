@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SalesProj.Product;
+using SalesProj.Data;
+using SalesProj.Data.Repositories;
+
+
 
 namespace SalesProj.Services
 {
     class ProductService
     {
-        private IList<Product.Product> products;
 
-        public ProductService()
+        private readonly ICrdRepository<Product, int> productRepository;
+        public ProductService(ICrdRepository<Product, int> productRepository)
         {
-            products = new List<Product.Product>();
+            this.productRepository = productRepository;
         }
 
-        internal Product.Product Create(Product.Product product)
+        internal Product Create(Product toCreate)
         {
-            Console.WriteLine("Enter the Sale ID:");
+            Product newProduct = productRepository.Create(toCreate);
+            return newProduct;
+            /*Console.WriteLine("Enter the Sale ID:");
             int saleID = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Enter the Product Name:");
@@ -38,12 +43,19 @@ namespace SalesProj.Services
             Product.Product newProduct = new Product.Product(saleID, productName, quantity, price, saleDate);
             products.Add(newProduct);
             Console.WriteLine($"Created new movie of {newProduct}");
-            return product;
+            return product;*/
         }
-
-        internal Product.Product Read(Product.Product products)
+        internal IEnumerable<Product> Read()
         {
-            return products;
+            return productRepository.Read();
+        }
+        internal void Delete(int id)
+        {
+            if (!productRepository.Exists(id))
+            {
+                Console.WriteLine($"item with id: {id} does not exist");
+            }
+            productRepository.Delete(id);
         }
     }
 }

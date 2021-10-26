@@ -1,6 +1,10 @@
 ﻿
 using System;
+using MySql.Data.MySqlClient;
+using SalesProj.Controllers;
+using SalesProj.Data.Repositories;
 using SalesProj.Menu;
+using SalesProj.Services;
 using SalesProj.Utils;
 
 
@@ -12,10 +16,19 @@ namespace SalesProj
         static void Main(string[] args)
         {
 
+            using MySqlConnection connection = MySqlUtil.GetConnection();
 
+            SalesMenu menu = new SalesMenu(
+                new ProductController(
+                    new ProductService(
+                        new ProductRepository(
+                            connection))));
 
             Console.WriteLine("Hello World!");
-            SalesMenu.SubMenu();
+
+            menu.SubMenu();
+            
+
 
         }
     }
