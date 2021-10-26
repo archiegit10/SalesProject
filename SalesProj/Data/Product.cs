@@ -20,27 +20,19 @@ namespace SalesProj.Data
         public double price;
         public double Price { get => price; set => price = value; }
 
-        public DateTime? saleDate;
-        public DateTime? SaleDate { get => saleDate; set => saleDate = value; }
 
         
         public string GetInfo()
         {
-            return $"\nID: {saleID}\nName: {productName}\nQuantity: {quantity}\nPrice: {price}\nSale Date: {saleDate}";
+            return $"\nID: {saleID}\nName: {productName}\nQuantity: {quantity}\nPrice: {price}";
         }
 
-        public Product(int saleID = 0, string productName = "Unknown", int quantity = 0, double price = 0.0, DateTime? saleDate = null)
+        public Product(int saleID = 0, string productName = "Unknown", int quantity = 0, double price = 0.0)
         {
-            if (!saleDate.HasValue)
-            {
-                DateTime thisDay = DateTime.Today;
-                saleDate = thisDay;
-            }
             this.saleID = saleID;
             this.productName = productName;
             this.quantity = quantity;
             this.price = price;
-            this.saleDate = saleDate;
         }
     }
 }

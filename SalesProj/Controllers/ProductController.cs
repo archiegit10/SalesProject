@@ -30,11 +30,9 @@ namespace SalesProj.Controllers
             Console.WriteLine("Enter the Price:");
             double price = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Enter the Sale Date:");
-            string pattern = "dd/MM/yyyy";
-            DateTime saleDate = DateTime.ParseExact(Console.ReadLine(),pattern, null);
+            
 
-            Product toCreate = new Product() { saleID = saleID, productName = productName, quantity = quantity, price = price, saleDate = saleDate };
+            Product toCreate = new Product() { saleID = saleID, productName = productName, quantity = quantity, price = price };
             Product newProduct = productService.Create(toCreate);
             Console.WriteLine($"New product created: {newProduct}");
             
