@@ -43,7 +43,7 @@ namespace SalesProj.Controllers
             IEnumerable<Product> productsInDb = productService.Read();
             foreach (var product in productsInDb)
             {
-                Console.WriteLine(product);
+                Console.WriteLine($"{product.GetInfo()}");
             }
         }
         internal void Delete()
