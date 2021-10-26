@@ -10,7 +10,7 @@ using System.Data;
 
 namespace SalesProj.Data.Repositories
 {
-    internal class ProductRepository : ICrdRepository<Product, int>
+    internal class ProductRepository : ICrdRepository<Product, int, string>
     {
         private readonly MySqlConnection connection;
 
@@ -50,6 +50,26 @@ namespace SalesProj.Data.Repositories
 
             return products;
         }
+
+        public string TotalYearRead(string totalYearSum)
+        {
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "select sum(item_price * sale_quantity) from sales where year(sale_date) = 2021";
+            connection.Open();
+            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
+            while (reader.Read())
+            {
+
+                //int intTotalYearSum = (int)Convert.ToSingle(reader.GetFieldValue<float>("sum(item_price * sale_quantity)"));
+                Console.WriteLine(reader["sum(item_price * sale_quantity)"].ToString());
+                //float intTotalYearSum = reader.GetFieldValue<float>("sum(item_price * sale_quantity)");
+                //totalYearSum = intTotalYearSum.ToString();
+            }
+            connection.Close();
+            //totalYearSum = intTotalYearSum.ToString();
+            return totalYearSum;
+        }
+
 
         public void Delete(int id)
         {

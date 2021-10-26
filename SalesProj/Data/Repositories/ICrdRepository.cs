@@ -8,13 +8,17 @@ namespace SalesProj.Data.Repositories
 {
     // T would be the type of data being stored
     // U would be the type of the id on the model
-    public interface ICrdRepository<T, U>
+    // C would be the type of the read data 
+    public interface ICrdRepository<T, U, C>
     {
         T Create(T t);
         public IList<T> Read();
         //T ReadyById(U u);
         public void Delete(U u);
         bool Exists(U u);
+
+        //internal string TotalYearRead(C c);
+        string TotalYearRead(C c);
     }
 }
 

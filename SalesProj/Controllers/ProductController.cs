@@ -11,7 +11,7 @@ namespace SalesProj.Controllers
     {
         private readonly ProductService productService;
 
-        
+
         public ProductController(ProductService productService)
         {
             this.productService = productService;
@@ -32,10 +32,10 @@ namespace SalesProj.Controllers
 
             DateTime saleDate = DateTime.Today;
 
-            Product toCreate = new Product() { saleID = saleID, productName = productName, quantity = quantity, price = price , saleDate = saleDate};
+            Product toCreate = new Product() { saleID = saleID, productName = productName, quantity = quantity, price = price, saleDate = saleDate };
             Product newProduct = productService.Create(toCreate);
             Console.WriteLine($"New product created: {newProduct}");
-            
+
         }
 
         public void ReadProducts()
@@ -65,6 +65,12 @@ namespace SalesProj.Controllers
         }
         public void TotalSalesYear()
         {
+            string input = Console.ReadLine();
+            string salesSum = productService.TotalYearRead(input);
+            Console.Write(salesSum);
+        }
+        /*public void TotalSalesYear()
+        {
             // sum of all sales for year
             Console.WriteLine("Enter the Year:");
             Console.Write(">");
@@ -84,6 +90,8 @@ namespace SalesProj.Controllers
             Console.WriteLine($"Sum of Sales for {totalYear}: {sum}");
 
         }
+        */
+        
 
     }
 }

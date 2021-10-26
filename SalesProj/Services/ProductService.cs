@@ -13,8 +13,8 @@ namespace SalesProj.Services
     class ProductService
     {
 
-        private readonly ICrdRepository<Product, int> productRepository;
-        public ProductService(ICrdRepository<Product, int> productRepository)
+        private readonly ICrdRepository<Product, int, string> productRepository;
+        public ProductService(ICrdRepository<Product, int, string> productRepository)
         {
             this.productRepository = productRepository;
         }
@@ -28,6 +28,14 @@ namespace SalesProj.Services
         internal IEnumerable<Product> Read()
         {
             return productRepository.Read();
+        }
+
+        internal string TotalYearRead(string totalYearSum)
+        {
+            string sum = totalYearSum;
+            Console.WriteLine(" product service");
+            
+            return productRepository.TotalYearRead(totalYearSum);
         }
         internal void Delete(int id)
         {
