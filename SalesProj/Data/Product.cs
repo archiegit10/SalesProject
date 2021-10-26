@@ -35,7 +35,7 @@ namespace SalesProj.Data
             this.productName = productName;
             this.quantity = quantity;
             this.price = price;
-            saleDate = saleDate;
+            this.saleDate = saleDate;
         }
     }
 }
