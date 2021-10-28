@@ -48,8 +48,6 @@ namespace SalesProj.Data.Repositories
         }
 
 
-
-
         public void Delete(int id)
         {
             MySqlCommand command = connection.CreateCommand();
@@ -90,55 +88,6 @@ namespace SalesProj.Data.Repositories
 
             return result > 0;
         }
-        /*
-        public string TotalYearRead(string totalYearSum, string passyear)
-        {
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = $"select sum(item_price * sale_quantity) from sales where year(sale_date) = ('{passyear}')";
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
-            while (reader.Read())
-            {
-                totalYearSum = reader["sum(item_price * sale_quantity)"].ToString();
-            }
-            connection.Close();
-            return totalYearSum;
-        }
-        public string TotalYearMonthRead(string totalYearMonthSum, string passYear, string passMonth)
-        {
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = $"select sum(item_price * sale_quantity) from sales where month(sale_date) = ('{passMonth}') and year(sale_date) = ('{passYear}')";
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
-            while (reader.Read())
-            {
-                totalYearMonthSum = reader["sum(item_price * sale_quantity)"].ToString();
-            }
-            connection.Close();
-            return totalYearMonthSum;
-        }
-
-        public IList<Product> TotalSalesYear(string passYear)
-        {
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = $"select * from sales where year(sale_date) = ('{passYear}')";
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
-            IList<Product> products = ItemsFromReader(reader);
-            connection.Close();
-            return products;
-        }
-
-        public IList<Product> TotalSalesYearMonth(string passYear, string passMonth)
-        {
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = $"select * from sales where month(sale_date) = ('{passMonth}') and year(sale_date) = ('{passYear}')";
-            connection.Open();
-            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
-            IList<Product> products = ItemsFromReader(reader);
-            connection.Close();
-            return products;
-        }
-        */
+        
     }
 }

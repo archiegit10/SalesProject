@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace SalesProj.Data.Repositories
 {
     // T would be the type of data being stored
-    // U would be the type of the id on the model
     // C would be the type of the read data 
     public interface IReportRepository<T, C>
     {

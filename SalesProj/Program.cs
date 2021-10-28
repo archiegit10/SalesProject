@@ -23,10 +23,8 @@ namespace SalesProj
                     new ProductService(
                         new ProductRepository(
                             connection))));
-
-            menu.SubMenu();
             
-
+            menu.SubMenu();
 
         }
     }

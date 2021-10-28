@@ -19,8 +19,6 @@ namespace SalesProj.Controllers
         {
             try
             {
-                // Console.WriteLine("Enter the Sale ID:");
-                //int saleID = Convert.ToInt32(Console.ReadLine());
                 int saleID = 0;
 
                 Console.WriteLine("Enter the Product Name:");

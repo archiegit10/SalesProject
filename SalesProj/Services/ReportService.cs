@@ -10,7 +10,6 @@ namespace SalesProj.Services
 {
     class ReportService
     {
-
         private readonly IReportRepository<Product, string> reportRepository;
         public ReportService(IReportRepository<Product, string> reportRepository)
         {
