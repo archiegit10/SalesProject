@@ -28,13 +28,13 @@ namespace SalesProj.Controllers
                 Console.WriteLine("Enter the year: ");
                 Console.Write(">");
                 string year = Console.ReadLine();
-                int ageYear = Int32.Parse(year);
+                int intYear = Int32.Parse(year);
                 if (string.IsNullOrEmpty(year))
                 {
                     Console.WriteLine("Year can't be empty! Input year again");
                     ProductSalesYear();
                 }
-                else if (ageYear > currentYear)
+                else if (intYear > currentYear)
                 {
                     Console.WriteLine("Please enter a year in the present, or past");
                     ProductSalesYear();
@@ -47,6 +47,7 @@ namespace SalesProj.Controllers
             }
             catch(FormatException e)
             {
+                Console.Clear();
                 Console.WriteLine(e.Message);
                 Console.WriteLine("\nPress Any Key to Continue");
                 Console.ReadKey();
@@ -55,22 +56,59 @@ namespace SalesProj.Controllers
         }
         public void ProductSalesMonth()
         {
+            try { 
             // list all individual sales for month and year
             Console.WriteLine("Enter the Year:");
             Console.Write(">");
             string year = Console.ReadLine();
+            int intYear = Int32.Parse(year);
+            if (string.IsNullOrEmpty(year))
+                {
+                    Console.WriteLine("Year can't be empty! Input year again");
+                    ProductSalesMonth();
+                }
+            else if (intYear > currentYear)
+                {
+                    Console.WriteLine("Please enter a year in the present, or past");
+                    ProductSalesMonth();
+                }
             Console.WriteLine("Enter the Month: (IN DIGITS 1-12)");
             Console.Write(">");
             string month = Console.ReadLine();
-            string totalYearMonthSum = "";
+                int intMonth = Int32.Parse(month);
+            if (string.IsNullOrEmpty(month))
+                {
+                    Console.WriteLine("Year can't be month! Input year again");
+                    ProductSalesMonth();
+                }
+            else if ((intMonth+currentYear) > (currentYear+currentMonth))
+                {
+                    Console.WriteLine("Please enter a month in the present, or past");
+                    ProductSalesMonth();
+                } 
+                string totalYearMonthSum = "";
             string salesSum = productService.TotalYearMonthRead(totalYearMonthSum, year, month);
             Console.Write($"Sales sum for year {year} and month {month} is £{salesSum}\n");
             Console.WriteLine("\nPress Any Key to Continue");
             Console.ReadKey();
+                Console.Clear();
+            }
+            catch (FormatException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+                Console.WriteLine("\nPress Any Key to Continue");
+                Console.ReadKey();
+            }
+
         }
 
         public void TotalSalesYear()
         {
+            try
+            {
+
+           
             // sum of all sales for year
             Console.WriteLine("Enter the year: ");
             Console.Write(">");
@@ -84,10 +122,18 @@ namespace SalesProj.Controllers
             }
             Console.WriteLine("\nPress Any Key to Continue");
             Console.ReadKey();
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("\nPress Any Key to Continue");
+                Console.ReadKey();
+            }
 
         }
         public void TotalSalesMonth()
         {
+            try { 
             // sum of sales for month
             Console.WriteLine("Enter the year: ");
             Console.Write(">");
@@ -104,6 +150,14 @@ namespace SalesProj.Controllers
             }
             Console.WriteLine("\nPress Any Key to Continue");
             Console.ReadKey();
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("\nPress Any Key to Continue");
+                Console.ReadKey();
+            }
+
         }
     }
 }
