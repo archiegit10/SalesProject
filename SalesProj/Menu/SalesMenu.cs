@@ -89,6 +89,7 @@ namespace SalesProj.Menu
                         productController.ReadProducts();
                         break;
                     case "2" or "CREATE":
+                        //controller to create
                         productController.Create();
                         break;
                     case "3" or "DELETE":
