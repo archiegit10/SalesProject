@@ -61,6 +61,7 @@ namespace SalesProj.Controllers
             }
             Console.WriteLine("\nPress Any Key to Continue");
             Console.ReadKey();
+            Console.Clear();
         }
         internal void Delete()
         {

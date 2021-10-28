@@ -52,7 +52,7 @@ namespace SalesProj.Menu
 
             while (inMenu)
             {
-                Console.WriteLine("\n--------------------\nData Report Menu\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Back\n--------------------");
+                Console.WriteLine("\n--------------------\nData Report Menu\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Sales Between Two Years\n6. Sales Between Two Years and Months\n7. Average Sales for a Month Over Years\n8. Average Sales Per Month for a Year\n9. The Best Selling Month Per Year\n10. Month of a specified year that made the least sales\n11. Back\n--------------------");
                 Console.Write("> ");
                 string input = Console.ReadLine();
                 switch (input.ToUpper())
@@ -77,6 +77,24 @@ namespace SalesProj.Menu
                         reportController.TotalSalesMonth();
                         break;
                     case "5":
+                        //	All sales between two specified years (inclusive)
+                        break;
+                    case "6":
+                        //	All sales between two specified years and months (inclusive)
+                        break;
+                    case "7":
+                        //	The average sales for a given month over a specified amount of years (Example output: July over the past 3 years has averaged £4500 in sales)
+                        break;
+                    case "8":
+                        //	The average sales per month for a specified year (Example output: In 2021, the average amount of sales per month is £4000)
+                        break;
+                    case "9":
+                        //	The month of a specified year that made the most sales (Example output: In 2018, the highest sales were made in February at £7500)
+                        break;
+                    case "10":
+                        //	The month of a specified year that made the least sales
+                        break;
+                    case "11":
                         SubMenu();
                         inMenu = false;
                         break;

@@ -44,6 +44,7 @@ namespace SalesProj.Controllers
                 Console.Write($"Sales sum for year {year} is £{salesSum}\n");
                 Console.WriteLine("\nPress Any Key to Continue");
                 Console.ReadKey();
+                Console.Clear();
             }
             catch(FormatException e)
             {
