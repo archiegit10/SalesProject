@@ -20,54 +20,68 @@ namespace SalesProj.Controllers
 
         public void ProductSalesYear()
         {
-            // list all individual sales for year
-            Console.WriteLine("Enter the Year:");
+            //total sales for year 
+            Console.WriteLine("Enter the year: ");
             Console.Write(">");
-            int salesYear = Convert.ToInt32(Console.ReadLine());
+            string year = Console.ReadLine();
+            string totalYearSum = "";
+            string salesSum = productService.TotalYearRead(totalYearSum, year);
+            Console.Write($"Sales sum for year {year} is £{salesSum}\n");
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
 
         }
         public void ProductSalesMonth()
         {
             // list all individual sales for month and year
-            Console.WriteLine("Enter the Month:");
-            Console.Write(">");
-            int salesMonth = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter the Year:");
             Console.Write(">");
-            int salesYear = Convert.ToInt32(Console.ReadLine());
+            string year = Console.ReadLine();
+            Console.WriteLine("Enter the Month: (IN DIGITS 1-12)");
+            Console.Write(">");
+            string month = Console.ReadLine();
+            string totalYearMonthSum = "";
+            string salesSum = productService.TotalYearMonthRead(totalYearMonthSum, year, month);
+            Console.Write($"Sales sum for year {year} and month {month} is £{salesSum}\n");
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
         }
 
         public void TotalSalesYear()
         {
             // sum of all sales for year
-            Console.WriteLine("Enter the Year:");
+            Console.WriteLine("Enter the year: ");
             Console.Write(">");
-            int totalYear = Convert.ToInt32(Console.ReadLine());
+            string year = Console.ReadLine();
+            Console.Write($"Individual Sales in year {year}\n");
 
-            int sum = 0;
-            IEnumerable<Product> productsInDb = productService.Read();
+            IEnumerable<Product> productsInDb = productService.TotalSalesYear(year);
             foreach (var product in productsInDb)
             {
                 Console.WriteLine($"{product.GetInfo()}");
-                if (product.saleDate.Year == totalYear)
-                {
-                    int productSum = (int)(product.price * product.quantity);
-                    sum = sum + productSum;
-                }
             }
-            Console.WriteLine($"Sum of Sales for {totalYear}: {sum}");
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
 
         }
         public void TotalSalesMonth()
         {
             // sum of sales for month
-            Console.WriteLine("Enter the Month:");
+            Console.WriteLine("Enter the year: ");
             Console.Write(">");
-            int totalMonth = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the Year:");
+            string year = Console.ReadLine();
+            Console.WriteLine("Enter the Month: (IN DIGITS 1-12)");
             Console.Write(">");
-            int totalYear = Convert.ToInt32(Console.ReadLine());
+            string month = Console.ReadLine();
+            Console.Write($"Individual Sales in year {year} and month {month}\n");
 
+            IEnumerable<Product> productsInDb = productService.TotalSalesYearMonth(year, month);
+            foreach (var product in productsInDb)
+            {
+                Console.WriteLine($"{product.GetInfo()}");
+            }
+            Console.WriteLine("\nPress Any Key to Continue");
+            Console.ReadKey();
         }
     }
 }

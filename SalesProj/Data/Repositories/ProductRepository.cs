@@ -22,11 +22,10 @@ namespace SalesProj.Data.Repositories
         public Product Create(Product toCreate)
         {
             MySqlCommand command = connection.CreateCommand();
-            //command.CommandText = $"INSERT INTO item(name) VALUES('{toCreate.Name}')";
             command.CommandText = $"INSERT INTO Sales(product_name,sale_quantity,item_price) VALUES ('{toCreate.ProductName}',{toCreate.Quantity},{toCreate.Price})";
 
             connection.Open();
-            command.ExecuteNonQuery(); // ExecuteNonQuery() - use it for CREATE, INSERT, DELETE or any modification
+            command.ExecuteNonQuery();
             connection.Close();
 
             Product product = new Product();
@@ -40,12 +39,9 @@ namespace SalesProj.Data.Repositories
         {
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = "SELECT * FROM Sales";
-
             connection.Open();
-            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
-
+            MySqlDataReader reader = command.ExecuteReader();
             IList<Product> products = ItemsFromReader(reader);
-
             connection.Close();
 
             return products;
@@ -58,7 +54,6 @@ namespace SalesProj.Data.Repositories
         {
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = $"DELETE FROM Sales WHERE id={id}";
-
             connection.Open();
             command.ExecuteNonQuery();
             connection.Close();
@@ -76,7 +71,6 @@ namespace SalesProj.Data.Repositories
                 double item_price = reader.GetFieldValue<double>("item_price");
                 DateTime saleDate = reader.GetFieldValue<DateTime>("sale_date");
                 
-
                 Product product = new Product() { SaleID = sale_id, ProductName = product_name, quantity = sale_quantity, price = item_price, saleDate = saleDate };
                 products.Add(product);
             }

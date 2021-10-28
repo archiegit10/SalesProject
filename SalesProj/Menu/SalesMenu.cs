@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SalesProj.Menu;
+using SalesProj.Utils;
+using SalesProj.Data.Repositories;
 
 namespace SalesProj.Menu
 {
@@ -44,6 +46,8 @@ namespace SalesProj.Menu
 
         public void ReportsSubMenu()
         {
+
+            ReportController reportController = new ReportController(new Services.ProductService(new ProductRepository(MySqlUtil.GetConnection())));
             bool inMenu = true;
 
             while (inMenu)
@@ -55,21 +59,22 @@ namespace SalesProj.Menu
                 {
                     case "1":
                         // sales by year
-                        productController.SalesYear();
+                        //productController.SalesYear();
+                        reportController.ProductSalesYear();
 
                         break;
                     case "2":
                         //Sales by month and year
-                        productController.SalesYearMonth();
+                        reportController.ProductSalesMonth();
                         break;
                     case "3":
                         // total sales by year
-                        productController.TotalSalesYear();
+                        reportController.TotalSalesYear();
 
                         break;
                     case "4":
                         // total sales by year and month
-                        productController.TotalSalesMonth();
+                        reportController.TotalSalesMonth();
                         break;
                     case "5":
                         SubMenu();
