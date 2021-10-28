@@ -9,25 +9,17 @@ namespace SalesProj.Data.Repositories
     // T would be the type of data being stored
     // U would be the type of the id on the model
     // C would be the type of the read data 
-    public interface ICrdRepository<T, U>
+    public interface IReportRepository<T, C>
     {
-        T Create(T t);
-        public IList<T> Read();
-        //T ReadyById(U u);
-        public void Delete(U u);
-        bool Exists(U u);
-        /*
-        //internal string TotalYearRead(C c);
+
         //sum of year
         string TotalYearRead(C c, string passYear);
         //sum of month and year
         string TotalYearMonthRead(C c, string passYear, string passMonth);
-        //total of year
+        //total individual sales of year
         public IList<T> TotalSalesYear(string passYear);
-
+        // total individual sales of year and month
         public IList<T> TotalSalesYearMonth(string passYear, string passMonth);
-        */
 
     }
 }
-

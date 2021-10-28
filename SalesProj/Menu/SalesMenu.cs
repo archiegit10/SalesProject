@@ -47,7 +47,7 @@ namespace SalesProj.Menu
         public void ReportsSubMenu()
         {
 
-            ReportController reportController = new ReportController(new Services.ProductService(new ProductRepository(MySqlUtil.GetConnection())));
+            ReportController reportController = new ReportController(new Services.ReportService(new ReportRepository(MySqlUtil.GetConnection())));
             bool inMenu = true;
 
             while (inMenu)

@@ -10,12 +10,12 @@ namespace SalesProj.Controllers
 {
     class ReportController
     {
-        private readonly ProductService productService;
+        private readonly ReportService reportService;
 
 
-        public ReportController(ProductService productService)
+        public ReportController(ReportService reportService)
         {
-            this.productService = productService;
+            this.reportService = reportService;
         }
 
         int currentMonth = DateTime.Now.Month;
@@ -40,7 +40,7 @@ namespace SalesProj.Controllers
                     ProductSalesYear();
                 }
                 string totalYearSum = "";
-                string salesSum = productService.TotalYearRead(totalYearSum, year);
+                string salesSum = reportService.TotalYearRead(totalYearSum, year);
                 Console.Write($"Sales sum for year {year} is £{salesSum}\n");
                 Console.WriteLine("\nPress Any Key to Continue");
                 Console.ReadKey();
@@ -87,7 +87,7 @@ namespace SalesProj.Controllers
                     ProductSalesMonth();
                 } 
                 string totalYearMonthSum = "";
-                string salesSum = productService.TotalYearMonthRead(totalYearMonthSum, year, month);
+                string salesSum = reportService.TotalYearMonthRead(totalYearMonthSum, year, month);
                 Console.Write($"Sales sum for year {year} and month {month} is £{salesSum}\n");
                 Console.WriteLine("\nPress Any Key to Continue");
                 Console.ReadKey();
@@ -123,7 +123,7 @@ namespace SalesProj.Controllers
                 }
                 Console.Write($"Individual Sales in year {year}\n");
 
-                IEnumerable<Product> productsInDb = productService.TotalSalesYear(year);
+                IEnumerable<Product> productsInDb = reportService.TotalSalesYear(year);
                 foreach (var product in productsInDb)
                 {
                     Console.WriteLine($"{product.GetInfo()}");
@@ -175,7 +175,7 @@ namespace SalesProj.Controllers
                 }
                 Console.Write($"Individual Sales in year {year} and month {month}\n");
 
-                IEnumerable<Product> productsInDb = productService.TotalSalesYearMonth(year, month);
+                IEnumerable<Product> productsInDb = reportService.TotalSalesYearMonth(year, month);
                 foreach (var product in productsInDb)
                 {
                     Console.WriteLine($"{product.GetInfo()}");

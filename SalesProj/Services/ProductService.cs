@@ -13,8 +13,8 @@ namespace SalesProj.Services
     class ProductService
     {
 
-        private readonly ICrdRepository<Product, int, string> productRepository;
-        public ProductService(ICrdRepository<Product, int, string> productRepository)
+        private readonly ICrdRepository<Product, int> productRepository;
+        public ProductService(ICrdRepository<Product, int> productRepository)
         {
             this.productRepository = productRepository;
         }
@@ -39,7 +39,7 @@ namespace SalesProj.Services
             }
             productRepository.Delete(id);
         }
-
+        /*
         internal string TotalYearRead(string totalYearSum, string year)
         {
             string sum = totalYearSum;
@@ -65,5 +65,6 @@ namespace SalesProj.Services
             string passMonth = month;
             return productRepository.TotalSalesYearMonth(passYear, passMonth);
         }
+        */
     }
 }
