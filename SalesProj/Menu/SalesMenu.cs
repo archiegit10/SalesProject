@@ -33,6 +33,12 @@ namespace SalesProj.Menu
                     break;
                 case "3" or "QUIT":
                     break;
+                default:
+                    Console.WriteLine("Invalid Choice, please enter a valid choice e.g. '1' or 'DATA ENTRY' etc \n Press Any Key To Continue");
+                    Console.ReadKey();
+                    Console.Clear();
+                    SubMenu();
+                    break;
             }
         }
 
@@ -69,6 +75,12 @@ namespace SalesProj.Menu
                         SubMenu();
                         inMenu = false;
                         break;
+                    default:
+                        Console.WriteLine("Invalid Choice, please enter a valid choice e.g. '1' \n Press Any Key To Continue");
+                        Console.ReadKey();
+                        Console.Clear();
+                        ReportsSubMenu();
+                        break;
                 }
 
             }
@@ -79,7 +91,7 @@ namespace SalesProj.Menu
             bool inMenu = true;
             while (inMenu)
             {
-                Console.WriteLine("\nData Entry\n1. Read all products\n2. Create Product\n3. Delete Products\n4. Back");
+                Console.WriteLine("\nData Entry\n1. READ all products\n2. CREATE Product\n3. DELETE Products\n4. BACK");
                 Console.Write("> ");
                 string input = Console.ReadLine();
                 switch (input.ToUpper())
@@ -99,6 +111,12 @@ namespace SalesProj.Menu
                     case "4" or "BACK":
                         SubMenu();
                         inMenu = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice, please enter a valid choice e.g. '1' or 'READ' etc \n Press Any Key To Continue");
+                        Console.ReadKey();
+                        Console.Clear();
+                        DataSubMenu();
                         break;
                 }
             }
