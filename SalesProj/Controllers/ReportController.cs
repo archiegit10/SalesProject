@@ -18,17 +18,39 @@ namespace SalesProj.Controllers
             this.productService = productService;
         }
 
+        int currentMonth = DateTime.Now.Month;
+        int currentYear = DateTime.Now.Year;
         public void ProductSalesYear()
         {
-            //total sales for year 
-            Console.WriteLine("Enter the year: ");
-            Console.Write(">");
-            string year = Console.ReadLine();
-            string totalYearSum = "";
-            string salesSum = productService.TotalYearRead(totalYearSum, year);
-            Console.Write($"Sales sum for year {year} is £{salesSum}\n");
-            Console.WriteLine("\nPress Any Key to Continue");
-            Console.ReadKey();
+            try
+            {
+                //total sales for year 
+                Console.WriteLine("Enter the year: ");
+                Console.Write(">");
+                string year = Console.ReadLine();
+                int ageYear = Int32.Parse(year);
+                if (string.IsNullOrEmpty(year))
+                {
+                    Console.WriteLine("Year can't be empty! Input year again");
+                    ProductSalesYear();
+                }
+                else if (ageYear > currentYear)
+                {
+                    Console.WriteLine("Please enter a year in the present, or past");
+                    ProductSalesYear();
+                }
+                string totalYearSum = "";
+                string salesSum = productService.TotalYearRead(totalYearSum, year);
+                Console.Write($"Sales sum for year {year} is £{salesSum}\n");
+                Console.WriteLine("\nPress Any Key to Continue");
+                Console.ReadKey();
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("\nPress Any Key to Continue");
+                Console.ReadKey();
+            }
 
         }
         public void ProductSalesMonth()
