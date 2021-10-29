@@ -10,6 +10,6 @@
 ## What didn't go as planned?
 #### Not completing the extra tasks
 ## Possible improvements for future
-#### Make more reusable methods for the queries 
+#### Make more reusable methods for the queries. Using Jira to track branches and features as well, I felt that due to the small scope of the project that Jira would make things more difficult to track changes across functions where i'd implement a function somewhere else.
 ## Notable mentions 
 #### Aswene and Morgan and the rest of the QA trainers for teaching us all and Morgans example C# project which was of great use as my QA laptop corrupted with my movie project. 
