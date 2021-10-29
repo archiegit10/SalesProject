@@ -52,7 +52,7 @@ namespace SalesProj.Menu
 
             while (inMenu)
             {
-                Console.WriteLine("\n--------------------\nData Report Menu\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Sales Between Two Years\n6. Sales Between Two Years and Months\n7. Average Sales for a Month Over Years\n11. Back\n--------------------");
+                Console.WriteLine("\n--------------------\nData Report Menu\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Sales Between Two Years\n11. Back\n--------------------");
                 Console.Write("> ");
                 string input = Console.ReadLine();
                 switch (input.ToUpper())

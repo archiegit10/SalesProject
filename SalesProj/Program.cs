@@ -15,7 +15,6 @@ namespace SalesProj
         
         static void Main(string[] args)
         {
-
             using MySqlConnection connection = MySqlUtil.GetConnection();
             
             SalesMenu menu = new SalesMenu(
