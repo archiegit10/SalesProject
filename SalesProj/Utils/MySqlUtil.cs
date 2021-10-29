@@ -10,7 +10,7 @@ namespace SalesProj.Utils
 {
     class MySqlUtil
     {
-        // "server=127.0.0.1:3306;uid=root;pwd=root;database=item"
+        // "server=127.0.0.1:3306;uid=root;pwd=root;database=Sales"
         public static MySqlConnectionStringBuilder ConnectionString { get; set; } = new MySqlConnectionStringBuilder
         {
             Server = "127.0.0.1", // server hosting the mysql server
