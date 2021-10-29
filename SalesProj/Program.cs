@@ -17,7 +17,7 @@ namespace SalesProj
         {
 
             using MySqlConnection connection = MySqlUtil.GetConnection();
-
+            
             SalesMenu menu = new SalesMenu(
                 new ProductController(
                     new ProductService(
@@ -25,7 +25,12 @@ namespace SalesProj
                             connection))));
             
             menu.SubMenu();
-
+            /*
+            //creating the sales table in the database 
+            connection.Open();
+            MySqlUtil.RunSchema(Environment.CurrentDirectory + @"\Data\Sql\Schema.sql", connection);
+            connection.Dispose();
+            */
         }
     }
 }

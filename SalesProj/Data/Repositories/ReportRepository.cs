@@ -82,5 +82,20 @@ namespace SalesProj.Data.Repositories
             return products;
         }
 
+        public IList<Product> SalesBetweenYear(string yearFrom, string yearToo)
+        {
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = $"select * from sales where year(sale_date) >= ('{yearFrom}') and year(sale_date) <= ('{yearToo}')";
+            connection.Open();
+            MySqlDataReader reader = command.ExecuteReader(); // returns a reader object
+            IList<Product> products = ItemsFromReader(reader);
+            connection.Close();
+            return products;
+        }
+
+
+        //select* from sales where not(month(sale_date) < 01 and year(sale_date) < 2020 OR month(sale_date) > 05 and year(sale_date) > 2022);
+
+        
     }
 }

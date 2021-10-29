@@ -52,7 +52,7 @@ namespace SalesProj.Menu
 
             while (inMenu)
             {
-                Console.WriteLine("\n--------------------\nData Report Menu\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Sales Between Two Years\n6. Sales Between Two Years and Months\n7. Average Sales for a Month Over Years\n8. Average Sales Per Month for a Year\n9. The Best Selling Month Per Year\n10. Month of a specified year that made the least sales\n11. Back\n--------------------");
+                Console.WriteLine("\n--------------------\nData Report Menu\n1. Sales by Year\n2. Sales by Month and Year\n3. Total Sales by Year\n4. Total Sales by Year and Month\n5. Sales Between Two Years\n6. Sales Between Two Years and Months\n7. Average Sales for a Month Over Years\n11. Back\n--------------------");
                 Console.Write("> ");
                 string input = Console.ReadLine();
                 switch (input.ToUpper())
@@ -78,12 +78,15 @@ namespace SalesProj.Menu
                         break;
                     case "5":
                         //	All sales between two specified years (inclusive)
+                        reportController.SalesBetweenYear();
                         break;
                     case "6":
                         //	All sales between two specified years and months (inclusive)
+                        //select* from sales where not(month(sale_date) < 01 and year(sale_date) < 2020 OR month(sale_date) > 05 and year(sale_date) > 2022);
                         break;
                     case "7":
                         //	The average sales for a given month over a specified amount of years (Example output: July over the past 3 years has averaged £4500 in sales)
+                        //select avg(monthsales) as averagesales from(select year(sale_date), sum(sale_quantity* item_price) as monthsales from sales where month(sale_date) = 05 group by year(sale_date) order by year(sale_date) desc limit 1) AS eachyear;
                         break;
                     case "8":
                         //	The average sales per month for a specified year (Example output: In 2021, the average amount of sales per month is £4000)

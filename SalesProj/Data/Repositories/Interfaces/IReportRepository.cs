@@ -19,6 +19,6 @@ namespace SalesProj.Data.Repositories
         public IList<T> TotalSalesYear(string passYear);
         // total individual sales of year and month
         public IList<T> TotalSalesYearMonth(string passYear, string passMonth);
-
+        public IList<T> SalesBetweenYear(string yearFrom, string yearToo);
     }
 }

@@ -42,6 +42,12 @@ namespace SalesProj.Services
             string passMonth = month;
             return reportRepository.TotalSalesYearMonth(passYear, passMonth);
         }
+        internal IEnumerable<Product> SalesBetweenYear(string yearFrom, string yearToo)
+        {
+            yearFrom = yearFrom;
+            yearToo = yearToo;
+            return reportRepository.SalesBetweenYear(yearFrom, yearToo);
+        }
 
     }
 }
